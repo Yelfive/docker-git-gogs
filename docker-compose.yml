@@ -1,0 +1,17 @@
+version: "3.1"
+services:
+  git:
+    image: gogs/gogs
+    volumes:
+      - ./app.ini:/data/gogs/conf/app.ini
+      - ./git-data:/data/gogs
+      - ./log:/app/gogs/log
+    links:
+      - mariadb
+  mariadb:
+    image: mariadb
+    volumes:
+      - ./mariadb-data:/var/lib/mysql
+    env_file:
+      # .env should contain MYSQL_ROOT_PASSWORD for root password
+      - ./.env
