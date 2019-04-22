@@ -1,2 +1,4 @@
 .env
 app.ini
+docker-compose.override.yml
+/data

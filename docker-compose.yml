@@ -1,10 +1,10 @@
 version: "3.1"
 services:
   git:
-    image: gogs/gogs
+    image: gogs/gogs:0.11.86
     volumes:
       - ./app.ini:/data/gogs/conf/app.ini
-      - ./git-data:/data/gogs
+      - ./data:/data
       - ./log:/app/gogs/log
     links:
       - mariadb
